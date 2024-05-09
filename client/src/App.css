@@ -1,6 +1,7 @@
 :root {
   --blue-col: #0067E9;
   --white-col: #FEFEFE;
+  --black-col: #473636;
 }
 
 
@@ -65,4 +66,75 @@ input {
     display: block;
     margin: 0 auto;
     max-width: 1920px;
+}
+
+.content__space {
+	display: flex;
+	justify-content: space-between;
+
+	padding: 0 4rem;
+}
+
+.form-element {
+	width: 40%;
+	height: auto;
+	box-shadow: 0px 0px 3px var(--blue-col);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	gap: 3rem;
+
+	padding-left: 1rem;
+	padding-top: 1rem;
+
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+
+	background-color: #fff;
+
+}
+
+.form-title {
+	color: var(--blue-col);
+
+	font-size: clamp(.8rem, 5vw, 1.2rem);
+	font-weight: bold;
+
+	
+	font-family: "Inter", sans-serif;
+	
+}
+
+.textArea-element {
+	color: var(--black-col);
+
+	font-size: clamp(.6rem, 5vw, 1rem);
+	font-weight: 400;
+
+	padding: .5rem;
+	
+	font-family: "Inter", sans-serif;
+	max-width: 90%;
+	box-shadow: 0px 0px 3px var(--blue-col);
+
+  
+}
+
+
+.form__btn-submit {
+	background: var(--blue-col);
+
+	width: 10rem;
+	height: 4rem;
+
+	border: none;
+
+	border-radius: 20px;
+
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #fff;
+	margin-bottom: 2rem;
 }

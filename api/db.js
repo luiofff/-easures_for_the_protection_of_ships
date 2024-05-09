@@ -7,7 +7,7 @@ const pool = new Pool(
         "password": "2401",
         "host": "localhost",
         "port": 5432,
-        "database": "мeasures_for_the_protection_of_ships"
+        "database": "sea_ships"
     }
 );
 

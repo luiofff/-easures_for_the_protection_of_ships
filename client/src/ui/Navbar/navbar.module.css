@@ -1,0 +1,22 @@
+.navbar__block {
+    height: 6rem;
+
+    padding: 0 4rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__title {
+    font-family: "Inter", sans-serif;
+
+    color: var(--blue-col);
+    font-weight: bold;
+    font-size: clamp(1.3rem, 5vw, 2rem);
+}
+
+.exit__icon {
+    width: 30px;
+    height: 30px;
+}

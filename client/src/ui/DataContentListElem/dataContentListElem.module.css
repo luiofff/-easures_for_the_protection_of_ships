@@ -1,0 +1,34 @@
+.list_elem__block {
+    width: auto;
+    height: auto;
+
+    display: flex;
+    gap: 2rem;
+
+    flex-direction: column;
+
+    border-left: 3px solid var(--blue-col);
+    padding-left: .5rem;
+}
+
+.title {
+    color: var(--blue-col);
+
+    font-family: "Inter", sans-serif;
+
+    font-size: clamp(.8rem, 5vw, 1.5rem);
+    color: var(--black-col);
+
+    font-weight: bold;
+}
+
+.text {
+    color: var(--blue-col);
+
+    font-family: "Inter", sans-serif;
+
+    font-size: clamp(.5rem, 5vw, 1.1rem);
+    color: var(--black-col);
+
+    font-weight: 400;
+}
