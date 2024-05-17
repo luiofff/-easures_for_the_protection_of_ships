@@ -8,26 +8,14 @@ const Auth = () => {
     const [password, setPassword] = React.useState("");
 
     const authFunction = async () => {
-        fetch('http://localhost:3005/api/auth', {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ login: login, pass: password }),
-          })
-          .then(response => response.json())
-          .then(data => {
-            if (data === true) {
-              console.log('Authentication successful');
-              // Делайте что-то, если аутентификация успешна
-            } else {
-              console.log('Authentication failed');
-              // Делайте что-то, если аутентификация не удалась
-            }
-          })
-          .catch(error => {
-            console.error('Error:', error);
-          });
+      if (login==="user_1") window.location.replace("/ShipsList")
+      else if(login==="user_2") window.location.replace("/ShipsSystems")
+      else if(login==="user_3") window.location.replace("/ShipsThreats")
+      else if(login==="user_4") window.location.replace("/ShipsVulnerabilities")
+      else if(login==="user_5") window.location.replace("/ProtectionMeasures")
+      else if(login==="user_6") window.location.replace("/SecurityIndicators")
+      else if(login==="user_7") window.location.replace("/ThreatsShipSystems")
+      else alert("Такого пользователя не существует")
     }
 
     return (

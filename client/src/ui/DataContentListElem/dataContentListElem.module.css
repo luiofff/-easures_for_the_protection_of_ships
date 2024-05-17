@@ -31,4 +31,8 @@
     color: var(--black-col);
 
     font-weight: 400;
+
+    width: 95%;
+
+    word-wrap: break-word;
 }
