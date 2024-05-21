@@ -57,9 +57,9 @@ const ShipsSystems = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar title={"Список систем"}/>
             <section className="content__space">
-                <DataSpaceShipSystems content={[1,2,3]}/>
+                <DataSpaceShipSystems />
 
                 <form onSubmit={handleSubmit} className="form-element">
                     <div className="form__elem">
@@ -72,11 +72,14 @@ const ShipsSystems = () => {
                         <textarea className="textArea-element" name="description" id="description" />
                     </div>
 
-                    <select className="select-menu" onChange={(e) => setVessel(e.target.value)}>
-                        {content.map((elem) => (
-                            <option   key={elem.ship_type} value={elem.id}>{elem.ship_type}</option>
-                        ))}
-                    </select>
+                    <div className="form__elem">
+                        <label htmlFor="description" className="form-title">Судно:</label>
+                        <select className="select-menu" onChange={(e) => setVessel(e.target.value)}>
+                            {content.map((elem) => (
+                                <option   key={elem.ship_type} value={elem.id}>{elem.ship_type}</option>
+                            ))}
+                        </select>
+                    </div>
 
                     <button type="submit" className="form__btn-submit">Отправить</button>
                 </form>

@@ -258,6 +258,144 @@ app.get("/api/getThreatSystemShip", async (req, res) => {
     }
 })
 
+
+
+// edit functions
+
+app.put('/api/updateShipsType', async (req, res) => {
+    try {
+        const { ship_type, description, shipId } = req.body;
+
+        // Обновление значения корабля в таблице ships_list
+        const updatedShip = await pool.query("UPDATE public.ships_list SET ship_type = $1, description = $2 WHERE id = $3 RETURNING *", [ship_type, description, shipId]);
+
+        if (updatedShip.rows.length === 0) {
+            return res.status(404).json({ message: 'Ship not found' });
+        }
+
+        res.json({ message: `Ship with ID ${shipId} has been updated successfully`, updatedShip: updatedShip.rows[0] });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+});
+
+app.put('/api/updateShipsSystems', async (req, res) => {
+    try {
+        const { system_name, description, vessel, SystemId } = req.body;
+
+        // Обновление значения корабля в таблице systems_list
+        const updatedSystem = await pool.query("UPDATE public.systems_list SET system_name = $1, description = $2, vessel = $3 WHERE id = $4 RETURNING *", [system_name, description, vessel, SystemId]);
+
+        if (updatedSystem.rows.length === 0) {
+            return res.status(404).json({ message: 'System not found' });
+        }
+
+        res.json({ message: `System with ID ${SystemId} has been updated successfully`, updatedSystem: updatedSystem.rows[0] });
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+});
+
+app.put('/api/updateShipsThreats', async (req, res) => {
+    try {
+        const { threat_name, description, source, threatId } = req.body;
+
+        // Обновление значения корабля в таблице systems_list
+        const updatedThreats = await pool.query("UPDATE public.threats_ship SET threat_name = $1, description = $2, source = $3 WHERE id = $4 RETURNING *", [threat_name, description, source, threatId]);
+
+        if (updatedThreats.rows.length === 0) {
+            return res.status(404).json({ message: 'System not found' });
+        }
+
+        res.json({ message: `System with ID ${SystemId} has been updated successfully`, updatedThreats: updatedThreats.rows[0] });
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+});
+
+app.put('/api/updateShipsVulnerability', async (req, res) => {
+    try {
+        const { vulnerability_name, description,threat, ThreatId } = req.body;
+
+
+        const updatedVulnerabiliti = await pool.query("UPDATE public.vulnerabilities_ship SET vulnerability_name = $1, description = $2, threat_id = $3 WHERE id = $4 RETURNING *", [vulnerability_name, description,threat, ThreatId]);
+
+        if (updatedVulnerabiliti.rows.length === 0) {
+            return res.status(404).json({ message: 'System not found' });
+        }
+
+        res.json({ message: `System with ID ${ThreatId} has been updated successfully`, updatedVulnerabiliti: updatedVulnerabiliti.rows[0] });
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+});
+
+app.put('/api/updateShipsMeasures', async (req, res) => {
+    try {
+        const { name, description, system_id, MeasuresId } = req.body;
+
+
+        const updatedMeasures = await pool.query("UPDATE public.measures SET name = $1, description = $2, ship_id = $3 WHERE id = $4 RETURNING *", [name, description,system_id, MeasuresId]);
+
+        if (updatedMeasures.rows.length === 0) {
+            return res.status(404).json({ message: 'System not found' });
+        }
+
+        res.json({ message: `Measures with ID ${MeasuresId} has been updated successfully`, updatedMeasures: updatedMeasures.rows[0] });
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+});
+
+app.put('/api/updateShipsIndicator', async (req, res) => {
+    try {
+        const { indicator, description, protection_measure, IndicatorId} = req.body;
+
+
+        const updatedIndicator = await pool.query("UPDATE public.shipsecurityindicator SET indicator = $1, description = $2, protection_measure = $3 WHERE id = $4 RETURNING *", [indicator, description,protection_measure, IndicatorId]);
+
+        if (updatedIndicator.rows.length === 0) {
+            return res.status(404).json({ message: 'System not found' });
+        }
+
+        res.json({ message: `Measures with ID ${IndicatorId} has been updated successfully`, updatedIndicator: updatedIndicator.rows[0] });
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+});
+
+app.put('/api/updateThreatsShipSystems', async (req, res) => {
+    try {
+        const { name, description, system, vessel, IndicatorId} = req.body;
+
+
+        const updatedThreatShipSystem = await pool.query("UPDATE public.threats_ship_systems SET name = $1, description = $2, relationship_system = $3, relationship_ship = $4 WHERE id = $5 RETURNING *", [name, description, system, vessel, IndicatorId]);
+
+        if (updatedThreatShipSystem.rows.length === 0) {
+            return res.status(404).json({ message: 'System not found' });
+        }
+
+        res.json({ message: `Measures with ID ${IndicatorId} has been updated successfully`, updatedThreatShipSystem: updatedThreatShipSystem.rows[0] });
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+});
+
+
+
 const server = app.listen(port, (error) => {
     if (error) return console.log(`Error: ${error}`);
     console.log(`Server is running on port ${port}`);

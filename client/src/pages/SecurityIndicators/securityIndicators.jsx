@@ -57,7 +57,7 @@ const SecurityIndicators = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar title={"Показатели защищенности"}/>
             <section className="content__space">
                 <DataSpaceSecurityIndicators />
 

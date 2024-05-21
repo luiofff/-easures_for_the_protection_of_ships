@@ -39,13 +39,13 @@ const ShipsThreats = () => {
 
     return (
         <>
-         <Navbar />
+         <Navbar title={"Список угроз"}/>
             <section className="content__space">
                 <DataSpceShipThreats />
 
                 <form onSubmit={handleSubmit} className="form-element">
                     <div className="form__elem">
-                        <label htmlFor="threat_name" className="form-title">Название системы судна:</label>
+                        <label htmlFor="threat_name" className="form-title">Название угрозы:</label>
                         <textarea className="textArea-element" name="threat_name" id="threat_name" />
                     </div>
                     

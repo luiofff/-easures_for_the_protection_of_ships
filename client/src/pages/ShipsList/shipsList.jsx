@@ -41,7 +41,7 @@ const ShipsList = () => {
 
     return (
         <>
-        <Navbar />
+        <Navbar title={"Список судов"}/>
         <section className="content__space">
             <DataSpaceShipType />
 

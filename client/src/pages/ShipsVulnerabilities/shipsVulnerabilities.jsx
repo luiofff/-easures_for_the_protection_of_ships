@@ -58,7 +58,7 @@ const ShipsVulnerabilities = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar title={"Список уязвимостей"}/>
             <section className="content__space">
                 <DataSpaceShipVulnerabilities />
 

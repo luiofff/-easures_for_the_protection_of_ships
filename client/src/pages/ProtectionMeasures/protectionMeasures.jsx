@@ -57,7 +57,7 @@ const ProtectionMeasures = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar title={"Меры защиты"}/>
             <section className="content__space">
                 <DataSpaceProtectionMeasures />
 

@@ -8,13 +8,13 @@ const Auth = () => {
     const [password, setPassword] = React.useState("");
 
     const authFunction = async () => {
-      if (login==="user_1") window.location.replace("/ShipsList")
-      else if(login==="user_2") window.location.replace("/ShipsSystems")
-      else if(login==="user_3") window.location.replace("/ShipsThreats")
-      else if(login==="user_4") window.location.replace("/ShipsVulnerabilities")
-      else if(login==="user_5") window.location.replace("/ProtectionMeasures")
-      else if(login==="user_6") window.location.replace("/SecurityIndicators")
-      else if(login==="user_7") window.location.replace("/ThreatsShipSystems")
+      if (login==="user_1" && password==="1") window.location.replace("/ShipsList")
+      else if(login==="user_2" && password==="2") window.location.replace("/ShipsSystems")
+      else if(login==="user_3" && password==="3") window.location.replace("/ShipsThreats")
+      else if(login==="user_4" && password==="4") window.location.replace("/ShipsVulnerabilities")
+      else if(login==="user_5" && password==="5") window.location.replace("/ProtectionMeasures")
+      else if(login==="user_6" && password==="6") window.location.replace("/SecurityIndicators")
+      else if(login==="user_7" && password==="7") window.location.replace("/ThreatsShipSystems")
       else alert("Такого пользователя не существует")
     }
 

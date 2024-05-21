@@ -71,7 +71,7 @@ const ThreatsShipSystems = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar title={"Список угроз систем судна"}/>
             <section className="content__space">
                 <DataSpaceThreatsShipSystems />
 
